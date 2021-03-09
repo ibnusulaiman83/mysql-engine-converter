@@ -5,11 +5,14 @@ class ConvertStorageEngine
     function convertAllTablesEngine($from, $to)
     {
         if (isset($_SESSION['dbName'])) {
+            $host = $_SESSION['dbHost'];
             $db = $_SESSION['dbName'];
             $user = $_SESSION['dbUser'];
             $password = $_SESSION['dbPassword'];
+            $port = $_SESSION['dbPort'];
+
             $checkCon = new CheckConn();
-            $pdo = $checkCon->checkConnection($db, $user, $password);
+            $pdo = $checkCon->checkConnection($db, $user, $password, $port, $host);
 
             $alertMessage = '';
             $arr = [];

@@ -21,7 +21,7 @@ if (class_exists('CheckConn')) {
         $port = $_POST['dbPort'];
 
         $checkCon = new CheckConn();
-        $conn = $checkCon->checkConnection($db, $user, $password);
+        $conn = $checkCon->checkConnection($db, $user, $password, $port, $host);
 
         $errMessage = '';
         $arr = [];
