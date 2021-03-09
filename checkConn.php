@@ -5,18 +5,20 @@ session_start();
 class CheckConn
 {
 
-    function checkConnection($db, $usr, $pwd)
+    function checkConnection($db, $usr, $pwd, $port, $host)
     {
-        return conn($db, $usr, $pwd);
+        return conn($db, $usr, $pwd, $port, $host);
     }
 }
 
 if (class_exists('CheckConn')) {
     if (isset($_POST['dbName'])) {
 
+        $host = $_POST['dbHost'];
         $db = $_POST['dbName'];
         $user = $_POST['dbUser'];
         $password = $_POST['dbPassword'];
+        $port = $_POST['dbPort'];
 
         $checkCon = new CheckConn();
         $conn = $checkCon->checkConnection($db, $user, $password);
@@ -43,10 +45,12 @@ if (class_exists('CheckConn')) {
             $res = $stmt->fetchAll();
 
             $_SESSION['login'] =  true;
-
+            
+            $_SESSION['dbHost'] = $host;
             $_SESSION['dbName'] = $db;
             $_SESSION['dbUser'] = $user;
             $_SESSION['dbPassword'] = $password;
+            $_SESSION['dbPort'] = $port;
 
             $arr['alert'] = $errMessage;
             $arr['tablesInfo'] = $res;

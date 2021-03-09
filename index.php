@@ -41,6 +41,12 @@
                                         <i class="fas fa-globe-asia"></i>
                                     </a>
                                 </div>
+                                <!-- Host input -->
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="dbHost" class="form-control" name="dbHost" autocomplete="off" />
+                                    <label class="form-label" for="dbHost">Host</label>
+                                </div>
+
                                 <!-- Database input -->
                                 <div class="form-outline mb-4">
                                     <input type="text" id="dbName" class="form-control" name="dbName" autocomplete="off" />
@@ -57,6 +63,11 @@
                                 <div class="form-outline mb-4">
                                     <input type="password" id="dbPassword" name="dbPassword" class="form-control" autocomplete="off" />
                                     <label class="form-label" for="dbPassword">Password</label>
+                                </div>
+                                <!-- Port input -->
+                                <div class="form-outline mb-4">
+                                    <input type="text" id="dbPort" name="dbPort" class="form-control" autocomplete="off" />
+                                    <label class="form-label" for="dbPort">Port</label>
                                 </div>
 
                                 <!-- Submit button -->
